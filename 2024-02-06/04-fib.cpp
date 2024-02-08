@@ -28,3 +28,4 @@ int main()
   std::cout << "About to compute fib(46)." << std::endl
 	    << "fib(46) = " << fib(46) << ".\n";
 }
+
