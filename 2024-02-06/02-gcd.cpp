@@ -5,7 +5,7 @@
 int gcd(int m, int n)
 {
   while (m != n) { // Step 1: check if m equals n.
-    // Step 2: Replace larger of m,n with their difference.
+    // Step 2: Replace the larger of m,n with their difference.
     if (m > n) {
       m = m - n;
     }
