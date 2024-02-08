@@ -1,5 +1,6 @@
-// Fibonacci function -- impractical recursion
-// Computing fib(46) will be noticeably slower
+// Fibonacci function -- slow recursion
+// Computing fib(46) will be noticeably slow
+// because of many redundant computations.
 #include <iostream>
 
 int fib(int n)
@@ -15,3 +16,4 @@ int main()
   std::cout << "About to compute fib(46)." << std::endl
 	    << "fib(46) = " << fib(46) << ".\n";
 }
+
