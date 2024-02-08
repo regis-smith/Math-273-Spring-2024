@@ -1,3 +1,6 @@
-# Math 273 Spring 2024
+## Math 273: Data Structures and Algorithms
+East Los Angeles College \
+Spring 2024 \
+Regis Smith
 
-Exmaples and solutions posted here.
+Examples and solutions posted here.
