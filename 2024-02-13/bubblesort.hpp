@@ -1,4 +1,6 @@
 // Bubble sort algorithm
+#pragma once
+
 #include <algorithm> // for std::swap
 
 template <typename List>
