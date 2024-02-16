@@ -29,9 +29,8 @@ int main()
   for (auto i = word.rbegin(); i != word.rend(); ++i)
     std::cout << *i << '\n';
   
-  // print a string in reverse-- std::string has iterators too!
+  // Adding an int to advance the iterator
   for (auto i = word.rbegin() + 2 ; i != word.rend(); ++i)
     std::cout << *i << '\n';
-
-  
 }
+
