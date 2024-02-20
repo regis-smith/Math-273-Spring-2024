@@ -30,6 +30,22 @@ void list_remove_front(node<K>*& list)
   delete old_front;
 }
 
+template <typename K>
+void list_insert_after_back(node<K>*& list, const K& key)
+{
+  auto new_node = new node<K> {key};
+  if (list == nullptr) {
+    list = new_node;
+    return;
+  }
+  // find the last node
+  node<K>* target_node = list;
+  while (target_node->next != nullptr) {
+    target_node = target_node->next;
+  }
+  target_node->next = new_node;
+}
+
 int main()
 {
   node<char>* my_list = nullptr; // empty list
@@ -42,6 +58,8 @@ int main()
   list_remove_front(my_list);
 
   list_print(my_list);
-}
 
-  
+  list_insert_after_back(my_list, 'd');
+
+  list_print(my_list);  
+}
