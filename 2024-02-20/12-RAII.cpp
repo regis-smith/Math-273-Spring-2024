@@ -3,25 +3,25 @@
 #include <algorithm>
 #include <stdexcept>
 
-template <typename T>
-class beginner_list {
-public:
-  beginner_list(int n) {
-    storage = new T[n];
-    size = 0;
-  }
-  beginner_list(const beginner_list&);
-  beginner_list& operator=(const beginner_list&);
-  ~beginner_list() {
-    delete storage;
-    storage = nullptr;
-  }
-  T& operator[](int n) {
-    if (n > size) throw std::out_of_range("Index out of range");
-    return storage[n];
-  }
-private:
-  T* storage = nullptr;
-  int size = 0;
-}; 
+template <typename key_t>
+struct node {
+  key_t key;
+  node* next = nullptr;
+};
 
+template <typename key_t>
+class deque {
+public:
+  deque();
+  deque(const deque&);
+  deque& operator=(const deque&);
+  ~deque();
+  int size() const;
+  void push_front(const key_t);
+  void push_back(const key_t);
+  void pop_front();
+  void pop_back();
+private:
+  node<key_t> head;
+  int count = 0;
+};
