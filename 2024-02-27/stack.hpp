@@ -45,5 +45,9 @@ int stack<T,CAPACITY>::size() const
 template <typename T, int CAPACITY>
 T& stack<T,CAPACITY>::top()
 {
+  if (top_index == 0) {
+    std::cout << "Empty stack has no top.\n";
+    throw std::exception(); // nothing to return
+  }
   return storage[top_index-1];
 }
