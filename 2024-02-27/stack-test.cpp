@@ -13,4 +13,5 @@ int main()
     s.pop();
   } while (s.size() > 0);
   s.pop(); // try to pop empty stack
+  std::cout << s.top(); // 
 }
