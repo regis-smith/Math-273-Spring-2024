@@ -21,6 +21,7 @@ int main()
     std::vector<int> nums;
     nums.resize(size);
     for (auto& n: nums) n = 2*u(e); // store even ints only
+    std::sort(nums.begin(), nums.end());
 
     // Use a lambda function for binary search less than
     auto my_less = [](const auto& a, const auto& b)
