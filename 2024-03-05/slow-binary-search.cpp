@@ -29,6 +29,7 @@ int main()
     std::vector<int> nums;
     nums.resize(size);
     for (auto& n: nums) n = 2*u(e); // store even ints only
+    std::sort(nums.begin(), nums.end());
 
     my_less<int> slow_less;
     timer<std::chrono::milliseconds> my_timer;
