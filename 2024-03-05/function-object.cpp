@@ -1,4 +1,4 @@
-// sort in reverse with function object
+// Sort in reverse with a function object for less than.
 #include <algorithm>
 #include <chrono>
 #include <iostream>
