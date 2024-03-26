@@ -1,0 +1,43 @@
+// Slow down binary search so we can compare running times.
+// This version uses a lambda.
+#include "timer.hpp"
+#include <algorithm>
+#include <chrono>
+#include <iostream>
+#include <memory>
+#include <random>
+#include <thread>
+#include <vector>
+
+int main()
+{
+  std::mt19937 e;
+  std::uniform_int_distribution<int> u;
+
+  // Search containers of the following sizes
+  auto sizes = {10000000, 20000000, 40000000, 80000000, 16000000, 32000000};
+  for (auto size: sizes) {
+    
+    std::vector<int> nums;
+    nums.resize(size);
+    for (auto& n: nums) n = 2*u(e); // store even ints only
+    std::sort(nums.begin(), nums.end());
+
+    // Use a lambda function for binary search less than
+    auto my_less = [](const auto& a, const auto& b)
+    {
+      std::this_thread::sleep_for(std::chrono::milliseconds(10)); // pause
+      return a < b;
+    };
+
+    timer<std::chrono::milliseconds> my_timer;
+    my_timer.start();
+    // search for an odd int, which will not be found
+    std::binary_search(nums.begin(), nums.end(), 2*u(e)+1, my_less);
+    my_timer.stop();
+
+    std::cout << "Size: " << nums.size() << "\tRunning time: "
+	      << my_timer.count() << "ms\tRatio: "
+	      << my_timer.count() / log(nums.size()) <<'\n';
+  }
+}
